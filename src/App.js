@@ -9,11 +9,18 @@ export const newTodo = () => ({
   name: "some todo item"
 })
 
-const App = ({ store, dispatch }) => {
-  console.log(dispatch)
+const App = ({ store = {}, dispatch }) => {
+  const todos = store.todoItems || []
   return <div className="App">
-    <div>{JSON.stringify(store)}</div>
-    <button onClick={() => dispatch(newTodo())}>click me!</button>
+    <div>
+      <h2>state:</h2>
+      <h3>todos:</h3>
+      <button onClick={() => dispatch(newTodo())}>click me!</button>
+      <ul>
+        {todos.map(x => <li>{x}</li>)}
+      </ul>
+    </div>
+
   </div>
 }
 export default connect(store => ({ store }), dispatch => ({ dispatch }))(App);
