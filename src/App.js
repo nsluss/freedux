@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 import { connect } from 'react-redux';
 
@@ -17,7 +16,7 @@ const App = ({ store = {}, dispatch }) => {
       <h3>todos:</h3>
       <button onClick={() => dispatch(newTodo())}>click me!</button>
       <ul>
-        {todos.map(x => <li>{x}</li>)}
+        {todos.map((x, i) => <li key={i}>{x}</li>)}
       </ul>
     </div>
 
