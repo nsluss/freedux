@@ -5,7 +5,7 @@ describe('newTodo', () => {
   it('should add a new item to the todo list', () => {
     //given
     const initialState = { todoItems: [] }
-    const action = newTodo();
+    const action = newTodo('some todo item');
     //when
     const result = reducer(initialState, action);
     //then
