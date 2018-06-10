@@ -1,6 +1,8 @@
-import { interpretAsMiddleware, interpretAsFuture, dispatchF, setTimeoutF, Unit } from './freedux'
+import freedux from './freedux'
 import { Monad } from 'freeky'
 import { newTodo } from './actions'
+
+const { dispatchF, Unit, setTimeoutF, interpretAsFuture, interpretAsMiddleware } = freedux
 
 export const effects = action => {
   switch (action.type) {
@@ -21,7 +23,8 @@ const makeTodoAsync = (name) => setTimeoutF(5000, () => newTodo(name))
 
 const handleAsyncTodo = action => Monad.do(function* () {
   const newAction = yield makeTodoAsync(action.name)
-  return dispatchF(newAction)
+  yield dispatchF(newAction)
+  return Monad.of(Unit)
 })
 
 const middleware = interpretAsMiddleware(interpretAsFuture)(effects)
