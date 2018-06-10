@@ -1,5 +1,5 @@
 import reducer from './reducer';
-import { newTodo } from './App';
+import { newTodo } from './actions';
 
 describe('newTodo', () => {
   it('should add a new item to the todo list', () => {

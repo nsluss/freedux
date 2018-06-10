@@ -4,6 +4,8 @@ export const reducer = (state = { todoItems: [] }, action) => {
       return {
         todoItems: state.todoItems.concat(action.name)
       }
+    default:
+      return state
   }
 }
 

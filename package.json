@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "daggy": "^1.2.0",
+    "data.task": "^3.1.1",
     "freeky": "git+https://github.com/DrBoolean/freeky.git",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
